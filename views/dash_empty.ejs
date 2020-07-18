@@ -1,0 +1,83 @@
+<%- include("header") -%>
+<%- include("nav") -%>
+<div class="container">
+    <div class="db">
+        <div class="db-1">
+            <h1>Hello, <span><%= userName %></span>. </p>
+            </h1>
+            <h4>Showing daily work log for <span>
+                    <!-- DISPLAY TODAYS DATE -->
+                    <div class="btn-group dropright mb-2">
+                        <button type="button" class="btn btn-dark btn-secondary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <%= todaysDate %>
+                        </button>
+                        <!-- POPUP MENU -->
+                        <div class="dropdown-menu">
+                            <!-- Dropdown menu links -->
+                            <form action="/pickedDate" method="POST">
+                                <div class="date-pick m-3">
+                                    <div class="dp">
+                                        <input type="date" id="picked_date" name="picked_date">
+                                    </div>
+                                    <div class="ds mt-2">
+                                        <button type="submit" class="btn btn-sm btn-dark btn-block">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </span>
+                <h4>
+        </div>
+        <hr class="hr1">
+
+        <div class="db-2">
+            <form action="/dashboard" method="POST">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="width:5%" scope="col">NO.</th>
+                            <th style="width:15%" scope="col">JOB</th>
+                            <th style="width:70%" scope="col">DESCRIPTION</th>
+                            <th style="width:10%" scope="col">HOURS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>
+                                <!-- JOB NUMBER -->
+                                <div class="form-group mb-0">
+                                    <input type="number" id="job_number" name="job_number" class="form-control "
+                                        placeholder="8899" value="<%= typeof name != 'undefined' ? name : '' %>" />
+                                </div>
+                            </td>
+                            <td>
+                                <!-- JOB DESCRIPTION -->
+                                <div class="form-group">
+                                    <textarea id="job_description" name="job_description" class="form-control"
+                                        id="exampleFormControlTextarea1" rows="2" placeholder="Describe your job here."
+                                        value="<%= typeof name != 'undefined' ? name : '' %>"></textarea>
+                                </div>
+                            </td>
+                            <td>
+                                <!-- HOURS -->
+                                <div class="form-group">
+                                    <input type="number" id="job_hours" name="job_hours" class="form-control"
+                                        placeholder="1.00" step="any"
+                                        value="<%= typeof name != 'undefined' ? name : '' %>" />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- ADD BUTTON -->
+                <button type="submit" class="btn btn-dark float-right">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("footer") -%>

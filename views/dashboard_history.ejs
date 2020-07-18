@@ -1,0 +1,70 @@
+<%- include("header") -%>
+<%- include("nav") -%>
+<div class="container zz">
+    <div class="db">
+
+        <div class="db-1">
+            <h1>Hello, <span><%= userName %></span>. </p>
+            </h1>
+            <h4>Showing daily work log for <span>
+                    <!-- DISPLAY TODAYS DATE -->
+                    <div class="btn-group dropright mb-2">
+                        <button type="button" class="btn btn-dark btn-secondary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <%= todaysDate %>
+                        </button>
+                        <!-- POPUP MENU -->
+                        <div class="dropdown-menu">
+                            <!-- Dropdown menu links -->
+                            <form action="/pickedDate" method="POST">
+                                <div class="date-pick m-3">
+                                    <div class="dp">
+                                        <input type="date" id="picked_date" name="picked_date">
+                                    </div>
+                                    <div class="ds mt-2">
+                                        <button type="submit" class="btn btn-sm btn-dark btn-block">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </span>
+                <h4>
+
+        </div>
+        <hr class="hr1">
+
+        <div class="db-2">
+            <!-- TABLE -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width:5%" scope="col">NO.</th>
+                        <th class="samplex" scope="col">JOB</th>
+                        <th style="width:60%" scope="col">DESCRIPTION</th>
+                        <th class="samplex" scope="col">HOURS</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% stuffx.forEach(element => { %>
+                    <tr>
+                        <th scope="row"></th>
+                        <td>
+                            <p> <%= element.job_number, %> </p>
+                        </td>
+                        <td>
+                            <p> <%= element.job_description, %> </p>
+                        </td>
+                        <td>
+                            <p> <%= element.job_hours %> </p>
+                        </td>
+                    </tr>
+                    <% });%>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include("footer") -%>

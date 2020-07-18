@@ -1,0 +1,64 @@
+<%- include("header") -%>
+<%- include("nav") -%>
+<div class="container">
+    <form action="/admin" method="POST">
+        <div class="sd1">
+            <h1>Hello, <span><%= userName %></span>.</h1>
+            <div class="fx">
+                <div class="fx-1 mt-2 mr-2">
+                    <h4>Search log for</h4>
+                </div>
+                <div class="fx-2 mt-1 ml-2">
+                    <div class="form-group">
+                        <input type="number" id="searchJobNo" name="searchJobNo" class="form-control jn-2 "
+                            placeholder="7094">
+                    </div>
+                </div>
+                <div class="fx-3 mt-1 ">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-dark float-left ml-3">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="hr1">
+    </form>
+    <div class="db-2">
+        <form action="/dashboard" method="POST">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width:5%" scope="col">NO.</th>
+                        <th class="samplex" scope="col">USER</th>
+                        <th style="width:15%" scope="col">JOB</th>
+                        <th style="width:60%" scope="col">DESCRIPTION</th>
+                        <th style="width:10%" scope="col">HOURS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% stuffz.forEach(element => { %>
+                    <tr>
+                        <th scope="row"></th>
+                        <td>
+                            <p> <%= element.loggedUser, %> </p>
+                        </td>
+                        <td>
+                            <p> <%= element.job_number, %> </p>
+                        </td>
+                        <td>
+                            <p> <%= element.job_description, %> </p>
+                        </td>
+                        <td>
+                            <p> <%= element.job_hours %> </p>
+                        </td>
+                    </tr>
+                    <% });%>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+</div>
+<%- include("footer") -%>

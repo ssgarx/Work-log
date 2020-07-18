@@ -1,0 +1,30 @@
+<%- include("header") -%>
+<%- include("nav") -%>
+<div class="container">
+    <form action="/admin" method="POST">
+        <div class="sd1">
+            <h1>Hello, <span><%= userName %></span>.</h1>
+            <div class="row mt-4">
+                <div class="col-md-2 jn-1 mb-2">
+                    <h4>Search log for</h4>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <input type="number" id="searchJobNo" name="searchJobNo" class="form-control jn-2 "
+                            placeholder="7094">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-dark float-left ml-3">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr1">
+        </div>
+    </form>
+</div>
+</div>
+<%- include("footer") -%>
