@@ -124,6 +124,9 @@ router.post("/register", (req, res) => {
 //DASHBOARD ROUTE *****
 router.get("/dashboard", ensureAuthenticated, (req, res) => {
   var lgUser = req.user.name; //logged in users name
+  console.log("DATE CHECK DEFAULT "+ dateCheck);
+  console.log("DATE CHECK ON ASSIGNED "+ todaysDate);
+  //DATECHECK IS DEFAULT TODAYS DATE
   if (todaysDate == dateCheck) {
     console.log("Date matches for today.");
   } else {
@@ -206,6 +209,7 @@ router.post("/pickedDate", (req, res) => {
   const { picked_date } = req.body; //2020-06-20
   var userPd = formatDate(picked_date);
   todaysDate = userPd;
+  console.log("PICKED DATE IS "+ todaysDate );
   res.redirect("/dashboard");
 });
 // PICKED DATE ROUTE ENDS *****
@@ -262,9 +266,18 @@ function formatDate(pd) {
   } else {
     pdMonth = pdMonth1;
   }
-  var pdDay = pd.substring(8, 10);
+  
+  var pdDay1 = pd.substring(8, 10);
+  var pdDay;
+  if (pdDay1 < 10) {
+    var pdDay = pd.substring(9, 10);
+  } else{
+    var pdDay = pdDay1;
+  }
+
   var formattedDate = pdDay + "/" + pdMonth + "/" + pdYear;
   return formattedDate;
+  
 }
 
 module.exports = router;
