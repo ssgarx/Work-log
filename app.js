@@ -18,7 +18,7 @@ require('./config/passport')(passport);
 
 //MONGOOSE
 mongoose
-  .connect("mongodb://localhost:27017/userDataDB", {
+  .connect("mongodb+srv://admin-sagar:sagar123@cluster0.im90v.mongodb.net/userDataDB?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
